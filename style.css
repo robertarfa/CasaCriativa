@@ -50,6 +50,11 @@ main{
     background: #ff5e84;
 }
 
+.fat a{
+    color: #FFF;
+    background: #ff5e84;
+}
+
 button{
     border: none;
     background: none;
