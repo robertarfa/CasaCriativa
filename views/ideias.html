@@ -1,34 +1,35 @@
-{% extends "layout.html" %}
-
+{% extends  "layout.html" %}
 
 {% set bodyId = "page-ideias" %}
 
 {% block title %}
-    <title>Ideias - Casa Criativa</title>
-{% endblock %}
+<title>Ideias - Casa Criativa</title>
+{% endblock title %}
 
 {% block content %}
 <header>
     <a href="/">
-        <img src="logo.png" alt="casa criativa">
+        <img src="/logo.png" alt="Casa Criativa">
     </a>
     <nav>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="#" onclick="onOff()" class="button">Nova Ideia</a></li>
+        <li><a href="/">Início</a></li>
+        <li><a class="button" href="#" onclick="onOff()">Nova ideia</a></li>
     </nav>
 </header>
 <section id="title">
     <p>em exibição</p>
-    <h1>Idéias</h1>
+    <h1>Ideias</h1>
 </section>
 <main>
-    <section id="ideas">
-        {% for idea in ideas %}
-            {% include "all_ideas.html" %}
-        {% endfor %}    
-    </section>
+    <section id="ideias">
+    
+        {% include "all_ideas.html" %}
+    
+</section>
 </main>
 <footer>
     <strong> Com ❤️ RAguilar</strong>
-</footer>
+</footer> 
+
 {% endblock %}
+  

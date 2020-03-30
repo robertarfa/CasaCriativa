@@ -1,17 +1,30 @@
+
+
 {% for idea in ideas %}
 <div class="idea">
-
     <img 
-        src="{{idea.img}}" 
-        alt="Imagem de {{idea.title}}">
-
-        <div class="content">
-            <h3>{{idea.title}}</h3>
-            <p>{{idea.category}}</p>
-            <div class="description">
-                {{idea.description}}
-            </div>
-            <a href="{{idea.url}}" target="blank">Ir para a ideia</a>
+    src="{{idea.image}}" 
+    alt="Imagem de {{idea.title}}">
+    
+    <div class="content">
+        
+        <h3>{{idea.title}}</h3>
+        <p>{{idea.category}}</p>
+        
+        <div class="description">
+            {{idea.description}}
         </div>
+                
+        <a href="{{idea.link}}" target="_blank">Ir para a ideia</a>
+       
+    </div>
+
+    <button">
+        <img
+        src="https://image.flaticon.com/icons/svg/761/761709.svg"
+        alt="Lixeira">
+    </button>
+    
 </div>
-{% endfor%}
+   
+{% endfor %}

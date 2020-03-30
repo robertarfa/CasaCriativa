@@ -1,9 +1,9 @@
  <!-- Modal -->
  <div id="modal" class="hide">
     <div class="content">
-        <h1>Nova Ideia</h1>
+        <h1>Nova ideia</h1>
 
-        <form action="">
+        <form action="/" method="POST" onsubmit="return checkFields(event)">
         
             <div class="input-wrapper">
                 <label for="title">Título da ideia</label>
@@ -21,8 +21,8 @@
             </div>
         
             <div class="input-wrapper">
-                <label for="description">Digite uma descrição para essa ideia</label>
-                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                <label for="description">Digite uma descrição para essa ideia </label>
+                <textarea name="description" cols="30" rows="5" maxlength="100" placeholder="Max. 100 caracteres"></textarea>
             </div>
         
             <div class="input-wrapper">

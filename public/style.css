@@ -5,6 +5,7 @@ body {
     /*text-align: center;*/
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+    
 }
 
 body.hideScroll{
@@ -44,10 +45,29 @@ p, .description{
 
 }
 #container{
-    width: 90%;
+    width: 100%;
+    
     max-width: 980px;
-    margin: 40px auto;
+    margin: 50px auto;
     display: flex;
+}
+
+.idea button {
+   
+    height: 40px;
+    margin-right: 15px;
+    margin-left: 30px;
+    padding: 0;
+}
+
+.idea button:hover {
+   opacity: 70%;
+}
+
+.idea button img{
+    width: 20px;
+    height: 20px;
+    margin: 0;
 }
 
 /*Section intro*/
@@ -133,8 +153,11 @@ footer{
 
 /*Section last-ideias*/
 
-#last-ideias{
-    margin-top: 5%;
+#last-ideas{
+    margin-top: 80px;
+}
+.content{
+    width: 100%;
 }
 
 .idea{
@@ -146,9 +169,10 @@ footer{
     /*O -8 serve para jogar a sombra pra dentro*/
     box-shadow: 5px 5px 15px -6px #fd90a9;
     margin-bottom: 32px;
-
     
 }
+
+
 
 .idea img{
     width: 60px;
@@ -169,8 +193,9 @@ footer{
 }
 
 .idea .description{
-    margin: 5px 10px;
+    margin: 10px 10px;
 }
+
 
 /* modal */
 
@@ -182,6 +207,7 @@ footer{
     left: 0;
     right: 0;
     height: 130%;
+    
     
     /*Com o position absolute, posso usar o vw para se adaptar as telas
     width: 100vw;
@@ -212,7 +238,7 @@ footer{
 }
 
 #modal form{
-    width: 100%;
+    width: 50%;
     max-width: 800;
 
     margin: 0 auto 20%;
@@ -369,7 +395,8 @@ section#ideias{
 }
 
 section#ideias .idea{
-    margin:0
+    margin:0;
+    padding: 32px;
 }
 
 section#title,

@@ -1,59 +1,75 @@
-//usei o express para criar e configurar meu servidor
-const express = require('express');
+const express = require("express");
 const server = express();
 
-const ideas = [
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729007.svg",
-        title: "Cursos de programação",
-        category: "Estudo",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        url: "https://rocketseat.com.br"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729007.svg",
-        title: "Cursos de programação",
-        category: "Estudo",
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-        url: "https://rocketseat.com.br"
-    }
-   
+const db = require('./db');
 
-]
+server.use(express.static("public"));
+server.use(express.urlencoded({ extended: true}))
 
-//configurar arquivos estaticos
-server.use(express.static("public"))
-
-//configuração do nunjucks
-const nunjucks = require("nunjucks")
+const nunjucks = require("nunjucks");
 nunjucks.configure("views", {
     express: server,
-    noCache: true, //para não guardar cache
+    noCache: true,
 })
 
-//capturo o pedido do cliente para responder
-//criei uma rota
-server.get('/', function (req, res){
+server.post('/', function(req, res){
+    const query = `
+        INSERT INTO  ideas(
+            image, title, category, description, link
+        ) VALUES (?,?,?,?,?);
+    `
+    const values = [
+        req.body.image,
+        req.body.title,
+        req.body.category,
+        req.body.description,
+        req.body.link,
+    ] 
 
-    const reversedIdeas = [...ideas].reverse()
-   
-    let lastIdeas = []
-    for (let idea of reversedIdeas) {
-        if (lastIdeas.length < 2){
-            lastIdeas.push(idea)
+    db.run(query, values, function(err){
+        if (err){
+            console.log(err)
+            return res.send("Erro no banco de dados!")
         }
-    }
 
-    return res.render("index.html", {ideas: lastIdeas})
+        return res.redirect("/ideias")
+    })
 })
 
-server.get('/ideias', function (req, res){
+ //Deletar um dado da tabela
+ server.get('/', function(req,res) {
+
+    db.all(`SELECT * FROM ideas`, function(err, rows) {
+        if (err){
+            console.log(err)
+            return res.send("Erro no banco de dados!")
+        }
+
+        const reversedIdeas = [...rows].reverse();
+        let lastIdeas =  []; 
+        for (let idea of reversedIdeas){
+            if(lastIdeas.length < 2){
+                lastIdeas.push(idea)
+            }
+        }
     
-    const reversedIdeas = [...ideas].reverse()
+        return res.render('index.html', { ideas: lastIdeas});
+    })
 
-    return res.render("ideias.html", {ideas: reversedIdeas})
+
+})
+
+server.get('/ideias', function(req,res) {
+    db.all(`SELECT * FROM ideas`, function(err, rows) {
+        if (err){
+            console.log(err)
+            return res.send("Erro no banco de dados!")
+        }
+         
+        const reversedIdeas = [...rows].reverse();
+        return res.render('ideias.html', { ideas: reversedIdeas});
+    })   
 })
 
 
-//liguei meu servidor porta 3000
-server.listen(3000)
+server.listen(3000);
