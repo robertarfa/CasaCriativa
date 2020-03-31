@@ -6,3 +6,7 @@ Página de web criada com HTML, CSS e Javascript para armazenar sugestões de at
 <strong>*** Ferramentas</strong><br>
 
 Foram utilizadas as bibliotecas express, nunjucks, nodemon.
+
+<img src="assets/print1.jpg">
+<img src="assets/print2.jpg">
+<img src="assets/print3.jpg">
