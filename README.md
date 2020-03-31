@@ -3,10 +3,8 @@
 
 Página de web criada com HTML, CSS e Javascript para armazenar sugestões de atividades que podem ser realizadas durante a quarentena.<br>
 
-<strong>*** Ferramentas</strong><br>
+Foram utilizados express, nunjucks, nodemon, SQLite, node.js.
 
-Foram utilizadas as bibliotecas express, nunjucks, nodemon.
-
-<img src="assets/print1.jpg">
-<img src="assets/print2.jpg">
-<img src="assets/print3.jpg">
+<align="center" img src="assets/print1.jpg">
+<align="center" img src="assets/print2.jpg">
+<align="center" img src="assets/print3.jpg">
