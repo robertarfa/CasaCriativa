@@ -5,6 +5,6 @@ Página de web criada com HTML, CSS e Javascript para armazenar sugestões de at
 
 Foram utilizados express, nunjucks, nodemon, SQLite, node.js.
 
-<align="center" img src="assets/print1.jpg">
-<align="center" img src="assets/print2.jpg">
-<align="center" img src="assets/print3.jpg">
+<img src="assets/print1.jpg">
+<img src="assets/print2.jpg">
+<img src="assets/print3.jpg">
